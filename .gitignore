@@ -1,0 +1,30 @@
+node_modules/
+dist/
+*.js
+*.js.map
+*.d.ts
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.cursor/
+.vscode/
+
+# Environment / credentials
+.env
+.env.*
+
+# Database files (contain personal data)
+*.db
+*.db-wal
+*.db-shm
+
+# Takeout source data
+takeout/
+
+# Bridge runtime data
+bridge/synapse-data/
+bridge/gmessages-data/
+bridge/postgres-data/

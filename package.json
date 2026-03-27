@@ -1,0 +1,38 @@
+{
+  "name": "outboxer",
+  "version": "0.1.0",
+  "description": "Personal email timeline system — reconceptualizes email as chat between identity-resolved contacts over channels",
+  "type": "module",
+  "scripts": {
+    "import": "node --import tsx src/import-gmail-takeout.ts import",
+    "import:fresh": "node --import tsx src/import-gmail-takeout.ts import --fresh",
+    "stats": "node --import tsx src/import-gmail-takeout.ts stats",
+    "viewer": "node --import tsx src/chat-viewer.ts",
+    "sync": "node --import tsx src/sync-gmail.ts",
+    "import:gchat": "node --import tsx src/import-google-chat.ts",
+    "import:gvoice": "node --import tsx src/import-google-voice.ts",
+    "import:sms": "node --import tsx src/import-sms-backup.ts",
+    "sync:contacts": "node --import tsx src/sync-google-contacts.ts",
+    "sync:contacts:relink": "node --import tsx src/sync-google-contacts.ts --relink",
+    "sync:contacts:daemon": "node --import tsx src/sync-google-contacts.ts --daemon",
+    "sync:gmessages": "node --import tsx src/sync-gmessages.ts",
+    "sync:gmessages:daemon": "node --import tsx src/sync-gmessages.ts --daemon",
+    "timeline": "node --import tsx src/import-gmail-takeout.ts timeline",
+    "search": "node --import tsx src/import-gmail-takeout.ts search",
+    "health": "bash scripts/health-check.sh",
+    "daemons:restart": "launchctl kickstart -k gui/$(id -u)/com.outboxer.gmail-sync && launchctl kickstart -k gui/$(id -u)/com.outboxer.contacts-sync && launchctl kickstart -k gui/$(id -u)/com.outboxer.gmessages-sync && echo 'All sync daemons restarted'",
+    "import:fresh-source": "node --import tsx src/import-gmail-takeout.ts import --fresh-source"
+  },
+  "dependencies": {
+    "googleapis": "^171.4.0",
+    "mailparser": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
